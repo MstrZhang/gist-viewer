@@ -14,17 +14,17 @@ const SearchPagination = (props: any) => {
    *  - if it does, enables the Next button; disables it otherwise
    */
   useEffect(() => {
-    // only run this effect if there are some gists rendered already (i.e. a search has been done on a user already)
+    // only run this effect if there are some gists rendered already
+    // (i.e. a search has been done on a user already)
     if (check) {
       axios.get(`https://api.github.com/users/${username}/gists`, {
         params: {
           page: currentPage + 1,
           per_page: 10,
         },
-      })
-      .then((res: any) => {
+      }).then((res: any) => {
         setEnableNext(res.data.length > 0);
-      })
+      });
     }
   }, [check, currentPage, username]);
 
@@ -37,16 +37,28 @@ const SearchPagination = (props: any) => {
 
   return (
     <div>
-      <button type="button" disabled={!(currentPage > 1)} onClick={() => {
-        onPageChange(currentPage - 1);
-        setCurrentPage((prevState: number) => prevState -= 1);
-      }}>Prev</button>
-      <button type="button" disabled={!enableNext} onClick={() => {
-        onPageChange(currentPage + 1);
-        setCurrentPage((prevState: number) => prevState += 1);
-      }}>Next</button>
+      <button
+        type="button"
+        disabled={!(currentPage > 1)}
+        onClick={() => {
+          onPageChange(currentPage - 1);
+          setCurrentPage((prevState: number) => prevState - 1);
+        }}
+      >
+        Prev
+      </button>
+      <button
+        type="button"
+        disabled={!enableNext}
+        onClick={() => {
+          onPageChange(currentPage + 1);
+          setCurrentPage((prevState: number) => prevState + 1);
+        }}
+      >
+        Next
+      </button>
     </div>
-  )
-}
+  );
+};
 
 export default SearchPagination;

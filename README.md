@@ -15,6 +15,7 @@ this react project reads gists data from GitHub's public API and displays all of
 
 - react
 - typescript
+- eslint (for linting and code formatting)
 - axios (for HTTP requests)
 
 ## building

@@ -13,28 +13,29 @@ const GistForks = (props: any) => {
    */
   useEffect(() => {
     axios.get(`https://api.github.com/gists/${gistId}/forks`)
-    .then((res) => {
-      setForkList(res.data.slice(0, 3).map((fork: any) => fork = {
-        username: fork.owner.login,
-        avatar: fork.owner.avatar_url,
-        forkUrl: fork.html_url,
-      }));
-    })
+      .then((res) => {
+        setForkList(res.data.slice(0, 3).map((fork: any) => ({
+          username: fork.owner.login,
+          avatar: fork.owner.avatar_url,
+          forkUrl: fork.html_url,
+          forkId: fork.id,
+        })));
+      });
   }, [gistId]);
 
   return (
     <div>
       {forkList.length > 0 && (
         <>
-          {forkList.map((fork: any, index: number) => (
-            <a key={`fork-${index}`} href={fork.forkUrl} target="_blank" rel="noopener noreferrer">
+          {forkList.map((fork: any) => (
+            <a key={fork.forkId} href={fork.forkUrl} target="_blank" rel="noopener noreferrer">
               <img className="avatar" src={fork.avatar} alt={fork.username} />
             </a>
           ))}
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default GistForks;

@@ -10,19 +10,19 @@ const SearchResults = (props: any) => {
     <>
       {results.length && (
         <>
-          {results.map((gist: any, index: number) => (
-            <div key={`gist-${index}`} className="gist--section">
+          {results.map((gist: any) => (
+            <div key={gist.id} className="gist--section">
               <small className="gist--description">{gist.description || '(no description)'}</small>
-              {Object.keys(gist.files).map((file: any, fileIndex: number) => (
-                <div key={`gistfile-${fileIndex}`} className="gist--item">
-                    <small className="gist--badge" style={{ backgroundColor: GIST_TYPES[gist.files[file].language] || '#ccc' }}>
-                      {gist.files[file].language || 'Other'}
-                    </small>
+              {Object.keys(gist.files).map((file: any) => (
+                <div key={gist.files[file].raw_url} className="gist--item">
+                  <small className="gist--badge" style={{ backgroundColor: GIST_TYPES[gist.files[file].language] || '#ccc' }}>
+                    {gist.files[file].language || 'Other'}
+                  </small>
                     &nbsp;
-                    <a href={gist.files[file].raw_url} target="_blank" rel="noopener noreferrer">
-                      <span>{gist.files[file].filename}</span>
-                    </a>
-                  </div>
+                  <a href={gist.files[file].raw_url} target="_blank" rel="noopener noreferrer">
+                    <span>{gist.files[file].filename}</span>
+                  </a>
+                </div>
               ))}
               <GistForks gistId={gist.id} />
             </div>
@@ -30,7 +30,7 @@ const SearchResults = (props: any) => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
 export default SearchResults;
