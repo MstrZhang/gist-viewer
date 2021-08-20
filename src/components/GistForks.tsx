@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './GistForks.css';
 
 const GistForks = (props: any) => {
   const { gistId } = props;
@@ -27,7 +28,7 @@ const GistForks = (props: any) => {
         <>
           {forkList.map((fork: any, index: number) => (
             <a key={`fork-${index}`} href={fork.forkUrl} target="_blank" rel="noopener noreferrer">
-              <img style={{ height: '30px', width: '30px', margin: '2px', borderRadius: '50%', overflow: 'hidden', imageRendering: 'crisp-edges' }} src={fork.avatar} alt={fork.username} />
+              <img className="avatar" src={fork.avatar} alt={fork.username} />
             </a>
           ))}
         </>

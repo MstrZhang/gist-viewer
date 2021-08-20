@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SearchPagination.css';
 
 const SearchPagination = (props: any) => {
   const { username, check, onPageChange } = props;

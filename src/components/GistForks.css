@@ -1,0 +1,9 @@
+.avatar {
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  border-radius: 50%;
+  overflow: hidden;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchResults from './SearchResults';
 import SearchPagination from './SearchPagination';
+import './SearchBar.css';
 
 const SearchBar = () => {
   const [username, setUsername] = useState('');
@@ -36,7 +37,7 @@ const SearchBar = () => {
       </div>
       {
         // when the list of gists is updated, pass the result to the SearchResults component
-        gists.length > 0 ? <SearchResults results={gists} /> : <div style={{ fontSize: '14px', margin: '10px 0' }}>No gists found ...</div>
+        gists.length > 0 ? <SearchResults results={gists} /> : <div className="gist--caption">No gists found ...</div>
       }
       <SearchPagination username={currentUser} check={gists.length > 0} onPageChange={(page: number) => searchByUsername(page)} />
     </>
