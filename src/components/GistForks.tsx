@@ -14,6 +14,7 @@ const GistForks = (props: any) => {
   useEffect(() => {
     axios.get(`https://api.github.com/gists/${gistId}/forks`)
       .then((res) => {
+        // this works because GitHub orders forks in chronological order
         setForkList(res.data.slice(0, 3).map((fork: any) => ({
           username: fork.owner.login,
           avatar: fork.owner.avatar_url,
