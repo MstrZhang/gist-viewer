@@ -11,9 +11,7 @@ const GistForks = (props: any) => {
    * If there are more than 3 latest forks, the list is truncated to only include the latest 3
    */
   useEffect(() => {
-    axios.get(`https://api.github.com/gists/${gistId}/forks`, {
-      headers: { 'Authorization': process.env.GITHUB_PERSONAL_ACCESS_TOKEN },
-    })
+    axios.get(`https://api.github.com/gists/${gistId}/forks`)
     .then((res) => {
       setForkList(res.data.slice(0, 3).map((fork: any) => fork = {
         username: fork.owner.login,

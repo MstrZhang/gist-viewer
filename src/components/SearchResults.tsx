@@ -11,7 +11,7 @@ const SearchResults = (props: any) => {
         <>
           {results.map((gist: any, index: number) => (
             <div key={`gist-${index}`} style={{ border: '1px solid #000', marginTop: '10px', marginBottom: '10px', padding: '10px', maxWidth: '600px', wordWrap: 'break-word' }}>
-              <small style={{ fontWeight: 'bold' }}>{`#${index}`} - {gist.description || '(no description)'}</small>
+              <small style={{ fontWeight: 'bold' }}>{gist.description || '(no description)'}</small>
               {Object.keys(gist.files).map((file: any, fileIndex: number) => (
                 <div key={`gistfile-${fileIndex}`} style={{ margin: '5px 0' }}>
                     <small style={{ backgroundColor: GIST_TYPES[gist.files[file].language] || '#ccc', padding: '3px', borderRadius: '3px' }}>

@@ -21,7 +21,7 @@ this react project reads gists data from GitHub's public API and displays all of
 
 1. create a `.env` file at the root of the project and fill in secrets
   - `.env.local` is provided as a template
-  - NOTE: `.env` is still visible to the end-user (environment variables are embedded into the build; can still be viewed by inspecting)
+  - NOTE: `.env` is still visible to the end-user (environment variables are embedded into the build; can still be viewed by inspecting) so this method is not particularly favourable
     - in a real develompent environment, environment secrets would be handled differently (e.g. using the backend as a proxy, ...)
 2. install dependencies using `npm install`
 3. run using `npm start`
