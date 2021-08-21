@@ -39,7 +39,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div>
+      <div data-testid="searchBar">
         <input type="text" name="searchBar" onChange={(event) => setUsername(event.target.value)} placeholder="Enter a GitHub username ..." />
         <button
           type="button"
@@ -54,7 +54,7 @@ const SearchBar = () => {
       </div>
       {
         // when the list of gists is updated, pass the result to the SearchResults component
-        gists.length > 0 ? <SearchResults results={gists} /> : <div className="gist--caption">{message}</div>
+        gists.length > 0 ? <SearchResults results={gists} /> : <div data-testid="searchMessage" className="gist--caption">{message}</div>
       }
       <SearchPagination
         username={currentUser}

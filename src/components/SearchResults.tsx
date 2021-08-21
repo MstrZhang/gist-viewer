@@ -7,11 +7,11 @@ const SearchResults = (props: any) => {
   const { results } = props;
 
   return (
-    <>
+    <div data-testid="search-results">
       {results.length && (
         <>
           {results.map((gist: any) => (
-            <div key={gist.id} className="gist--section">
+            <div key={gist.id} data-testid={gist.id} className="gist--section">
               <small className="gist--description">{gist.description || '(no description)'}</small>
               {Object.keys(gist.files).map((file: any) => (
                 <div key={gist.files[file].raw_url} className="gist--item">
@@ -29,7 +29,7 @@ const SearchResults = (props: any) => {
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 

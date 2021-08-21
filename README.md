@@ -15,8 +15,10 @@ this react project reads gists data from GitHub's public API and displays all of
 
 - react
 - typescript
-- eslint (for linting and code formatting)
 - axios (for HTTP requests)
+- dev dependencies:
+  - eslint (for linting and code formatting)
+  - jest (for unit testing)
 
 ## building
 
@@ -26,6 +28,10 @@ this react project reads gists data from GitHub's public API and displays all of
 2. install dependencies using `npm install`
 3. run using `npm start`
   - app opens on [http://localhost:3000](http://localhost:3000)
+
+## running tests
+
+1. run the test suite using `npm run test`
 
 ## using the application
 

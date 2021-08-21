@@ -27,9 +27,9 @@ const GistForks = (props: any) => {
   return (
     <>
       {forkList.length > 0 && (
-        <div className="forks--wrapper">
+        <div data-testid="gist-forks" className="forks--wrapper">
           {forkList.map((fork: any) => (
-            <a key={fork.forkId} href={fork.forkUrl} target="_blank" rel="noopener noreferrer">
+            <a data-testid={fork.forkId} key={fork.forkId} href={fork.forkUrl} target="_blank" rel="noopener noreferrer">
               <img className="avatar" src={fork.avatar} alt={fork.username} />
             </a>
           ))}

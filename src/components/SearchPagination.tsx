@@ -36,7 +36,7 @@ const SearchPagination = (props: any) => {
   }, [username]);
 
   return (
-    <div>
+    <div data-testid="search-pagination">
       <button
         type="button"
         className="button--primary"
