@@ -10,6 +10,7 @@ const SearchBar = () => {
   // so pagination doesn't constantly poll on change
   const [currentUser, setCurrentUser] = useState('');
   const [gists, setGists] = useState([]);
+  const [message, setMessage] = useState('No gists found ...');
 
   /**
    * Given a GitHub username, searches for gists associated to the user
@@ -23,6 +24,16 @@ const SearchBar = () => {
       },
     }).then((res) => {
       setGists(res.data);
+    }).catch((err) => {
+      if (err.response!.status === 404) {
+        // username cannot be found
+        setMessage(`User ${username} does not exist ...`);
+        setGists([]);
+      } else if (err.response!.status === 403) {
+        // API is rate limited
+        setMessage('You have reached the GitHub API rate limit. Consider using a personal access token or wait for 1 hour ...');
+        setGists([]);
+      }
     });
   };
 
@@ -43,7 +54,7 @@ const SearchBar = () => {
       </div>
       {
         // when the list of gists is updated, pass the result to the SearchResults component
-        gists.length > 0 ? <SearchResults results={gists} /> : <div className="gist--caption">No gists found ...</div>
+        gists.length > 0 ? <SearchResults results={gists} /> : <div className="gist--caption">{message}</div>
       }
       <SearchPagination
         username={currentUser}
