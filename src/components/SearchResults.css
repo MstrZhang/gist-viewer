@@ -1,13 +1,26 @@
 .gist--section {
-  border: 1px solid #000;
+  background-color: #3e3d32;
   margin: 10px 0;
   padding: 10px;
-  max-width: 600px;
+  width: 100%;
   word-wrap: break-word;
 }
 
 .gist--item {
-  margin: 5px 0;
+  margin: 10px 0;
+}
+
+.gist--bubble {
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 5px 2px 0 0;
+}
+.gist--bubble-description {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .gist--description {

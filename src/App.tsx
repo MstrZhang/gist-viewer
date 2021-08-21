@@ -7,7 +7,9 @@ const App = () => {
   axios.defaults.headers.common.Authorization = `token ${process.env.REACT_APP_GITHUB_TOKEN}`;
 
   return (
-    <SearchBar />
+    <div className="container">
+      <SearchBar />
+    </div>
   );
 };
 

@@ -39,6 +39,7 @@ const SearchPagination = (props: any) => {
     <div>
       <button
         type="button"
+        className="button--primary"
         disabled={!(currentPage > 1)}
         onClick={() => {
           onPageChange(currentPage - 1);
@@ -49,6 +50,7 @@ const SearchPagination = (props: any) => {
       </button>
       <button
         type="button"
+        className="button--primary"
         disabled={!enableNext}
         onClick={() => {
           onPageChange(currentPage + 1);

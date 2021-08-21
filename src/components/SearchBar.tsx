@@ -32,6 +32,7 @@ const SearchBar = () => {
         <input type="text" name="searchBar" onChange={(event) => setUsername(event.target.value)} placeholder="Enter a GitHub username ..." />
         <button
           type="button"
+          className="button--primary"
           onClick={() => {
             searchByUsername();
             setCurrentUser(username);
