@@ -59,6 +59,10 @@ const SearchPagination = (props: any) => {
       >
         Next
       </button>
+      <small className="page">
+        Page &nbsp;
+        {currentPage}
+      </small>
     </div>
   );
 };

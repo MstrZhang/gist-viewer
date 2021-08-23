@@ -56,11 +56,13 @@ const SearchBar = () => {
         // when the list of gists is updated, pass the result to the SearchResults component
         gists.length > 0 ? <SearchResults results={gists} /> : <div data-testid="searchMessage" className="gist--caption">{message}</div>
       }
-      <SearchPagination
-        username={currentUser}
-        check={gists.length > 0}
-        onPageChange={(page: number) => searchByUsername(page)}
-      />
+      {gists.length > 0 && (
+        <SearchPagination
+          username={currentUser}
+          check={gists.length > 0}
+          onPageChange={(page: number) => searchByUsername(page)}
+        />
+      )}
     </>
   );
 };
